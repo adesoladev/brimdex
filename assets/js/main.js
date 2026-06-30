@@ -98,3 +98,70 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   initNavbar();
 });
+
+// STRATEGIC THINKING SECTION
+const strategicBlock = document.querySelector(".strategic-block");
+
+const strategicObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        strategicBlock.classList.add("is-visible");
+        strategicObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.2 },
+);
+
+strategicObserver.observe(strategicBlock);
+
+// SERVICES SECTION
+const header = document.querySelector(".services-header");
+
+const headerObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        header.classList.add("is-visible");
+        headerObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.2 },
+);
+
+headerObserver.observe(header);
+
+const grid = document.querySelector(".services-grid");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        grid.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.15 },
+);
+
+observer.observe(grid);
+
+// PROCESS SECTION
+const processHeader = document.querySelector(".process-header");
+
+const processObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        processHeader.classList.add("is-visible");
+        processObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.2 },
+);
+
+processObserver.observe(processHeader);

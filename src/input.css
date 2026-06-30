@@ -238,7 +238,7 @@ footer .logo-icon img {
   text-decoration: none;
   font-size: 15px;
   font-weight: 600;
-  padding: 12px 18px;
+  padding: 12px 12px;
   border-radius: 50px;
   white-space: nowrap;
   transition:
@@ -352,4 +352,177 @@ footer .logo-icon img {
   }
 }
 
+/* STRATEGIC THINKING SECTION */
+
+.strategic-block .mask-wrap {
+  overflow: hidden;
+  display: block;
+}
+
+.strategic-block .mask-inner {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1) 0.05s;
+}
+
+.strategic-block.is-visible .mask-inner {
+  transform: translateY(0);
+}
+
+.strategic-block .fade-up {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.8s cubic-bezier(0.33, 1, 0.68, 1) 0.45s,
+    transform 0.8s cubic-bezier(0.33, 1, 0.68, 1) 0.45s;
+}
+
+.strategic-block.is-visible .fade-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* SERVICES */
+.services-header .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(6px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.services-header.is-visible .reveal {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.services-header.is-visible .reveal-1 {
+  transition-delay: 0s;
+}
+.services-header.is-visible .reveal-2 {
+  transition-delay: 0.12s;
+}
+.services-header.is-visible .reveal-3 {
+  transition-delay: 0.24s;
+}
+
+.services-grid {
+  background-color: #ebeae8;
+  transition: background-color 0.6s ease 0.3s;
+}
+
+.services-grid.is-visible {
+  background-color: transparent;
+}
+
+.service-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.services-grid.is-visible .service-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile (default): 1 column — card by card */
+.services-grid.is-visible .service-card:nth-child(1) {
+  transition-delay: 0.05s;
+}
+.services-grid.is-visible .service-card:nth-child(2) {
+  transition-delay: 0.15s;
+}
+.services-grid.is-visible .service-card:nth-child(3) {
+  transition-delay: 0.25s;
+}
+.services-grid.is-visible .service-card:nth-child(4) {
+  transition-delay: 0.35s;
+}
+.services-grid.is-visible .service-card:nth-child(5) {
+  transition-delay: 0.45s;
+}
+.services-grid.is-visible .service-card:nth-child(6) {
+  transition-delay: 0.55s;
+}
+.services-grid.is-visible .service-card:nth-child(7) {
+  transition-delay: 0.65s;
+}
+
+/* md: 2 columns — rows of 2 share a delay */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .services-grid.is-visible .service-card:nth-child(1),
+  .services-grid.is-visible .service-card:nth-child(2) {
+    transition-delay: 0.05s;
+  }
+
+  .services-grid.is-visible .service-card:nth-child(3),
+  .services-grid.is-visible .service-card:nth-child(4) {
+    transition-delay: 0.2s;
+  }
+
+  .services-grid.is-visible .service-card:nth-child(5),
+  .services-grid.is-visible .service-card:nth-child(6) {
+    transition-delay: 0.35s;
+  }
+
+  .services-grid.is-visible .service-card:nth-child(7) {
+    transition-delay: 0.5s;
+  }
+}
+
+/* lg and up: 3 columns — rows of 3 share a delay */
+@media (min-width: 1024px) {
+  .services-grid.is-visible .service-card:nth-child(1),
+  .services-grid.is-visible .service-card:nth-child(2),
+  .services-grid.is-visible .service-card:nth-child(3) {
+    transition-delay: 0.05s;
+  }
+
+  .services-grid.is-visible .service-card:nth-child(4),
+  .services-grid.is-visible .service-card:nth-child(5),
+  .services-grid.is-visible .service-card:nth-child(6) {
+    transition-delay: 0.25s;
+  }
+
+  .services-grid.is-visible .service-card:nth-child(7) {
+    transition-delay: 0.45s;
+  }
+}
+
+/* PROCESS SECTION */
+.process-header .reveal-clean {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.process-header.is-visible .reveal-clean {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.process-header.is-visible .reveal-1.reveal-clean {
+  transition-delay: 0s;
+}
+.process-header.is-visible .reveal-2.reveal-clean {
+  transition-delay: 0.15s;
+}
+.process-header.is-visible .reveal-3.reveal-clean {
+  transition-delay: 0.3s;
+}
+
+.border-border-strong {
+  border-color: #babec4;
+}
+
+.bg-primary {
+  background-color: #004aad;
+}
