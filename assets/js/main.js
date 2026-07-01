@@ -165,3 +165,39 @@ const processObserver = new IntersectionObserver(
 );
 
 processObserver.observe(processHeader);
+
+/* ============================================================
+   SELECTED WORK — touch fallback
+   Hover states don't exist on touch devices. This gives touch
+   users the same "preview" moment: first tap reveals the overlay/
+   zoom (adds .is-active, matches :hover in selected-work.css),
+   a second tap on the same card follows the link as normal.
+============================================================ */
+(function () {
+  var isTouch = matchMedia("(hover: none)").matches;
+  if (!isTouch) return;
+
+  var cards = document.querySelectorAll(".work-card");
+
+  cards.forEach(function (card) {
+    card.addEventListener("click", function (e) {
+      if (!card.classList.contains("is-active")) {
+        e.preventDefault();
+        cards.forEach(function (c) {
+          if (c !== card) c.classList.remove("is-active");
+        });
+        card.classList.add("is-active");
+      }
+      // second tap: already active, let the click through (navigates)
+    });
+  });
+
+  // Tapping outside any card clears the active preview state
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".work-card")) {
+      cards.forEach(function (c) {
+        c.classList.remove("is-active");
+      });
+    }
+  });
+})();

@@ -275,7 +275,8 @@ footer .logo-icon img {
     gap 0.2s ease;
 }
 
-.hero-btn-secondary:hover {
+.hero-btn-secondary,
+.case-study-btn:hover {
   color: #2563eb;
   gap: 16px;
 }
@@ -525,4 +526,101 @@ footer .logo-icon img {
 
 .bg-primary {
   background-color: #004aad;
+}
+
+/* SELECTED WORK SECTION  */
+.case-study-btn:hover .arrow {
+  transform: translateX(4px);
+}
+
+.work-card {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Image: slow, slight zoom on hover */
+.work-card__img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1);
+  will-change: transform;
+}
+
+/* Faint black overlay on hover */
+.work-card__overlay {
+  transition: background-color 0.5s ease;
+}
+
+/* Title: shifts toward brand color to read as "active" when the card is hovered */
+.work-card__title {
+  transition: color 0.3s ease;
+}
+
+.work-card__num {
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Subtle lift on the whole card frame */
+.work-card__frame {
+  transition: box-shadow 0.4s ease;
+}
+
+/* ---- Hover state (mouse/trackpad) ---- */
+.work-card:hover .work-card__img,
+.work-card.is-active .work-card__img {
+  transform: scale(1.06);
+}
+
+.work-card:hover .work-card__overlay,
+.work-card.is-active .work-card__overlay {
+  background-color: rgb(0 0 0 / 0.28);
+}
+
+.work-card:hover .work-card__title,
+.work-card.is-active .work-card__title {
+  color: var(--color-brand);
+}
+
+.work-card:hover .work-card__num,
+.work-card.is-active .work-card__num {
+  color: var(--color-brand);
+  opacity: 1;
+}
+
+.work-card:hover .work-card__frame,
+.work-card.is-active .work-card__frame {
+  box-shadow: 0 20px 45px -20px rgb(0 0 0 / 0.35);
+}
+
+/* ---- Keyboard focus parity (accessibility) ---- */
+.work-card:focus-visible {
+  outline: none;
+}
+
+.work-card:focus-visible .work-card__frame {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 3px;
+}
+
+.work-card:focus-visible .work-card__img {
+  transform: scale(1.06);
+}
+
+.work-card:focus-visible .work-card__overlay {
+  background-color: rgb(0 0 0 / 0.28);
+}
+
+.work-card:focus-visible .work-card__title {
+  color: var(--color-brand);
+}
+
+/* ---- Respect reduced-motion preference ---- */
+@media (prefers-reduced-motion: reduce) {
+  .work-card__img,
+  .work-card__overlay,
+  .work-card__title,
+  .work-card__num,
+  .work-card__frame {
+    transition-duration: 0.01ms !important;
+  }
 }
